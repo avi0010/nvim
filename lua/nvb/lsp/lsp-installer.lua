@@ -27,14 +27,14 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	 end
 
-    -- if server.name == "rust_analyzer" then
-    --   require("rust-tools").setup {
-    --     server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
-    --   }
-    --   server:attach_buffers()
-    -- else
-    --   server:setup(opts)
-    -- end
+    if server.name == "rust_analyzer" then
+      require("rust-tools").setup {
+        server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+      }
+      server:attach_buffers()
+    else
+      server:setup(opts)
+    end
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	server:setup(opts)
