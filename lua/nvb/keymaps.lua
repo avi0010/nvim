@@ -77,3 +77,7 @@ keymap("n", "<leader>li", "<cmd>lua require'telescope.builtin'.lsp_implementatio
 keymap("n", "<leader>gc", "<cmd>lua require'telescope.builtin'.git_commits{}<cr>", opts)
 keymap("n", "<leader>gb", "<cmd>lua require'telescope.builtin'.git_branches{}<cr>", opts)
 keymap("n", "<leader>gs", "<cmd>lua require'telescope.builtin'.git_status{}<cr>", opts)
+
+-- Nvim-Tree --
+keymap("n", "<leader>te", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>tr", ":NvimTreeRefresh<cr>", opts)

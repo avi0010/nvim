@@ -51,6 +51,13 @@ return packer.startup(function(use)
       'goolord/alpha-nvim',
       requires = { 'kyazdani42/nvim-web-devicons' },
   }
+  use 'kyazdani42/nvim-tree.lua'
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+  use "akinsho/toggleterm.nvim"
+  use "ahmedkhalf/project.nvim"
+  use "folke/which-key.nvim"
+
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
   use "rebelot/kanagawa.nvim"
@@ -64,6 +71,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -93,6 +101,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use 'kdheepak/lazygit.nvim'
 
 
   -- Automatically set up your configuration after cloning packer.nvim
