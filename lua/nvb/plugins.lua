@@ -103,12 +103,15 @@ return packer.startup(function(use)
 
 
   -- RUST --
-  use { "simrat39/rust-tools.nvim",
+  use {
+    "simrat39/rust-tools.nvim",
     requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
     module = "rust-tools",
     ft = { "rust" },
     config = function()
-      require("rust-tools").setup {}
+      require('rust-tools.inlay_hints').set_inlay_hints()
+      require('rust-tools.inlay_hints').toggle_inlay_hints()
+      require("rust-tools").setup{}
     end,
   }
 
@@ -117,7 +120,6 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  use 'kdheepak/lazygit.nvim'
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim

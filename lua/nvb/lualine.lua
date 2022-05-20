@@ -190,9 +190,9 @@ lualine.setup({
 		lualine_b = { branch, diagnostics },
 		lualine_c = {{ gps.get_location, cond = gps.is_available }},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
+		lualine_x = { diff, filetype },
 		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_z = { },
 	},
 	inactive_sections = {
 		lualine_a = {},
