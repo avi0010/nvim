@@ -57,6 +57,8 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "folke/which-key.nvim"
+  use "vimwiki/vimwiki"
+  use "danymat/neogen"
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
@@ -98,6 +100,20 @@ return packer.startup(function(use)
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+
+
+  -- RUST --
+  use { "simrat39/rust-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+    module = "rust-tools",
+    ft = { "rust" },
+    config = function()
+      require("rust-tools").setup {}
+    end,
+  }
+
+  -- Project --
+  use { 'nvim-telescope/telescope-project.nvim' }
 
   -- Git
   use "lewis6991/gitsigns.nvim"
