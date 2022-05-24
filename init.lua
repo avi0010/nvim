@@ -18,3 +18,5 @@ require "nvb.project"
 require "nvb.neogit"
 require "nvb.neogen"
 require "nvb.which-key"
+
+vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
