@@ -24,7 +24,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
+keymap("n", "<leader>R", "<cmd>:%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i<cr>", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
@@ -81,3 +81,8 @@ keymap("n", "<leader>gs", "<cmd>lua require'telescope.builtin'.git_status{}<cr>"
 -- Nvim-Tree --
 keymap("n", "<leader>te", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>tr", ":NvimTreeRefresh<cr>", opts)
+
+-- Tmux --
+keymap("n", "<leader>vp", ":VimuxPromptCommand<CR>", opts)
+keymap("n", "<leader>vl", ":VimuxRunLastCommand<CR>", opts)
+keymap("n", "<leader>vi", ":VimuxInspectRunner<CR>", opts)

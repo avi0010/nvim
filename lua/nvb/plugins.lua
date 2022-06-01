@@ -61,6 +61,10 @@ return packer.startup(function(use)
   use "danymat/neogen"
 
   -- Colorschemes
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
   use "lunarvim/darkplus.nvim"
   use "rebelot/kanagawa.nvim"
   use "sainnhe/everforest"
@@ -84,6 +88,10 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+
+  -- TMUX --
+  use "christoomey/vim-tmux-navigator"
+  use "preservim/vimux"
 
     -- Treesitter
   use {
