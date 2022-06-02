@@ -71,7 +71,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]]
-  vim.cmd [[autocmd CursorMoved * lua require('rust-tools.inlay_hints').set_inlay_hints()]]
+  -- vim.cmd [[autocmd CursorMoved * lua require('rust-tools.inlay_hints').set_inlay_hints()]]
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua require('rust-tools.inlay_hints').set_inlay_hints()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(
@@ -89,10 +89,6 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
-  end
-  if client.name == "pyright" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
