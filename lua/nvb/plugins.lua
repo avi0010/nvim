@@ -59,6 +59,8 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "vimwiki/vimwiki"
   use "danymat/neogen"
+  use "rcarriga/nvim-notify"
+  use "tpope/vim-surround"
 
   -- Colorschemes
   use({
