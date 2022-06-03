@@ -62,8 +62,6 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use "tpope/vim-surround"
   use "unblevable/quick-scope" 
-  vim.cmd("let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']")
-
   -- Colorschemes
   use({
     "catppuccin/nvim",
