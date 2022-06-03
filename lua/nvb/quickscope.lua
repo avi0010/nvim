@@ -1,0 +1,5 @@
+  vim.cmd("let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']")
+  vim.cmd("let g:qs_buftype_blacklist = ['terminal', 'nofile']")
+  vim.cmd("let g:qs_filetype_blacklist = ['dashboard', 'startify']")
+  vim.api.nvim_exec([[  autocmd ColorScheme * highlight QuickScopePrimary guifg='#E6404E' gui=underline ctermfg=155 cterm=underline]], false)
+  vim.api.nvim_exec([[  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline]], false)
