@@ -66,8 +66,8 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope --
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>F", "<cmd>Telescope live_grep<cr>", opts)
   -- LSP --
 keymap("n", "<leader>lr", "<cmd>lua require'telescope.builtin'.lsp_references{}<cr>", opts)
 keymap("n", "<leader>ld", "<cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>", opts)
@@ -79,8 +79,8 @@ keymap("n", "<leader>gb", "<cmd>lua require'telescope.builtin'.git_branches{}<cr
 keymap("n", "<leader>gs", "<cmd>lua require'telescope.builtin'.git_status{}<cr>", opts)
 
 -- Nvim-Tree --
-keymap("n", "<leader>te", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<leader>tr", ":NvimTreeRefresh<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts)
 
 -- Tmux --
 keymap("n", "<leader>vp", ":VimuxPromptCommand<CR>", opts)
