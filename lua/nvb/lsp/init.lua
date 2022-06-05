@@ -6,7 +6,6 @@ end
 -- require("nvb.lsp.lsp-installer")
 
 require("nvb.lsp.handlers").setup()
-require "nvb.lsp.config"
 require "nvb.lsp.null-ls"
+require "nvb.lsp.config"
 
-vim.notify("LSP loaded")
