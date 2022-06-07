@@ -45,6 +45,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("n", "<leader>/", ":Grepper -highlight -buffer <cr>", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

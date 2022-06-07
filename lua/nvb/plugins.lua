@@ -61,7 +61,8 @@ return packer.startup(function(use)
   use "danymat/neogen"
   use "rcarriga/nvim-notify"
   use "tpope/vim-surround"
-  use "unblevable/quick-scope" 
+  use "unblevable/quick-scope"
+  use "mhinz/vim-grepper"
   -- Colorschemes
   use({
     "catppuccin/nvim",

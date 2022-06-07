@@ -23,20 +23,17 @@ end
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
+  require("nvim-lsp-installer").setup {}
+
 	local opts = {
 		on_attach = require("nvb.lsp.handlers").on_attach,
 		capabilities = require("nvb.lsp.handlers").capabilities,
 	}
-  require("nvim-lsp-installer").setup {}
 
 	 if server.name == "pyright" then
 	 	local jsonls_opts = require("nvb.lsp.settings.pyright")
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-    require('lspconfig')['pyright'].setup{
-      on_attach = require("nvb.lsp.handlers").on_attach,
-      capabilities = require("nvb.lsp.handlers").capabilities,
-      opts,
-    }
+    lspconfig.pyright.setup(opts)
 	 end
 
 	 if server.name == "sumneko_lua" then
