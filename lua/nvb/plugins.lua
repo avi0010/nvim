@@ -130,6 +130,12 @@ return packer.startup(function(use)
   -- Project --
   use { 'nvim-telescope/telescope-project.nvim' }
 
+  -- DAP-mode --
+  use { 'mfussenegger/nvim-dap' }
+  use { 'nvim-telescope/telescope-dap.nvim' }
+  use { 'mfussenegger/nvim-dap-python' } -- Python
+  use {'theHamsta/nvim-dap-virtual-text'}
+  use {'rcarriga/nvim-dap-ui'}
   -- Git
   use "lewis6991/gitsigns.nvim"
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }

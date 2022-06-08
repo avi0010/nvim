@@ -176,6 +176,32 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  d = {
+    name = "Debug",
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    s = {
+      name = "step",
+      v = {'<cmd>lua require"dap".step_over()<CR>', "step over"},
+      i = {'<cmd>lua require"dap".step_into()<CR>', "step into"},
+      o = {'<cmd>lua require"dap".step_out()<CR>', "step out"},
+    },
+    t = {'<cmd>lua require"dap".toggle_breakpoint()<CR>', "toggle"},
+    r = {
+      name = "repl",
+      o = {'<cmd>lua require"dap".repl.open()<CR>', "open"},
+      l = {'<cmd>lua require"dap".repl.run_last()<CR>', "run last"},
+    },
+    T = {
+      name = "Telescope",
+      c = {'<cmd>lua require"telescope".extensions.dap.commands{}<CR>', "commands"},
+      C = {'<cmd>lua require"telescope".extensions.dap.configurations{}<CR>', "Conf"},
+      b = {'<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>', "Breakpoints"},
+      v = { '<cmd>lua require"telescope".extensions.dap.variables{}<CR>', "variables"},
+      f = {'<cmd>lua require"telescope".extensions.dap.frames{}<CR>', "frames"},
+
+    },
+    u = {'<cmd>lua require"dapui".toggle()<CR>', "ui"},
+      },
 }
 
 which_key.setup(setup)
