@@ -86,9 +86,9 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  
+  use "williamboman/nvim-lsp-installer"
+  use "neovim/nvim-lspconfig"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -115,17 +115,7 @@ return packer.startup(function(use)
 
 
   -- RUST --
-  use {
-    "simrat39/rust-tools.nvim",
-    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
-    module = "rust-tools",
-    ft = { "rust" },
-    config = function()
-      require('rust-tools.inlay_hints').set_inlay_hints()
-      require('rust-tools.inlay_hints').toggle_inlay_hints()
-      require("rust-tools").setup{}
-    end,
-  }
+  use { "matze/rust-tools.nvim", branch = "fix-upstreamed-inlayhints" }
 
   -- Project --
   use { 'nvim-telescope/telescope-project.nvim' }
