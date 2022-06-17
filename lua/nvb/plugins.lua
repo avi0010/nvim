@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use "unblevable/quick-scope"
   use "mhinz/vim-grepper"
   use "norcalli/nvim-colorizer.lua"
+  use "gelguy/wilder.nvim"
   -- Colorschemes
   use({
     "catppuccin/nvim",
