@@ -8,11 +8,10 @@ gps.setup({
 		["class-name"] = ' ',      -- Classes and class-like objects
 		["function-name"] = ' ',   -- Functions
 		["method-name"] = ' ',     -- Methods (functions inside class-like objects)
-		["container-name"] = '⛶ ',  -- Containers (example: lua tables)
-		["tag-name"] = '炙'         -- Tags (example: html tags)
+		["container-name"] = ' ',  -- Containers (example: lua tables)
+		["tag-name"] = ' '         -- Tags (example: html tags)
 	},
 
-	-- Add custom configuration per language or
 	-- Disable the plugin for a language
 	-- Any language not disabled here is enabled by default
 	languages = {
@@ -126,14 +125,14 @@ local diagnostics = {
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
-	colored = false,
+	colored = true,
 	update_in_insert = false,
 	always_visible = true,
 }
 
 local diff = {
 	"diff",
-	colored = false,
+	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width
 }
@@ -163,14 +162,14 @@ local location = {
 }
 
 -- -- cool function for progress
--- local progress = function()
--- 	local current_line = vim.fn.line(".")
--- 	local total_lines = vim.fn.line("$")
--- 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
--- 	local line_ratio = current_line / total_lines
--- 	local index = math.ceil(line_ratio * #chars)
--- 	return chars[index]
--- end
+local progress = function()
+	local current_line = vim.fn.line(".")
+	local total_lines = vim.fn.line("$")
+	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+	local line_ratio = current_line / total_lines
+	local index = math.ceil(line_ratio * #chars)
+	return chars[index]
+end
 
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
@@ -179,7 +178,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "catppuccin",
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" },
@@ -187,12 +186,12 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { mode },
-		lualine_b = { branch, diagnostics },
+		lualine_b = { branch, diff },
 		lualine_c = {{ gps.get_location, cond = gps.is_available }},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, filetype },
+		lualine_x = { diagnostics, "filename"},
 		lualine_y = { location },
-		lualine_z = { },
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
