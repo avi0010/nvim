@@ -51,6 +51,7 @@ return packer.startup(function(use)
       'goolord/alpha-nvim',
       requires = { 'kyazdani42/nvim-web-devicons' },
   }
+  -- TODO
   use 'kyazdani42/nvim-tree.lua'
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -65,6 +66,13 @@ return packer.startup(function(use)
   use "mhinz/vim-grepper"
   use "norcalli/nvim-colorizer.lua"
   use "gelguy/wilder.nvim"
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {}
+    end
+  }
   -- Colorschemes
   use({
     "catppuccin/nvim",
