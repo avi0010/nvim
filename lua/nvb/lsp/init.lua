@@ -1,9 +1,7 @@
-local status_ok, _ = pcall(require, "nvim-lsp-installer")
+local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
-  print("Unable to load nvim-lsp-installer init")
-	return
+  return
 end
-
 -- require("nvb.lsp.lsp-installer")
 
 require("nvb.lsp.handlers").setup()

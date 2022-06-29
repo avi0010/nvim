@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use "mhinz/vim-grepper"
   use "norcalli/nvim-colorizer.lua"
   use "gelguy/wilder.nvim"
+  use "xiyaowong/nvim-transparent"
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -124,7 +125,14 @@ return packer.startup(function(use)
 
 
   -- RUST --
-  use { "matze/rust-tools.nvim", branch = "fix-upstreamed-inlayhints" }
+  use {"simrat39/rust-tools.nvim", commit = "11dcd674781ba68a951ab4c7b740553cae8fe671"}
+  use {
+      'saecki/crates.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function()
+          require('crates').setup()
+      end,
+  }
 
   -- Project --
   use { 'nvim-telescope/telescope-project.nvim' }

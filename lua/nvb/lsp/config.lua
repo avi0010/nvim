@@ -1,53 +1,58 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-  print("ERROR while loading nvim-lsp-config")
-	return
+  return
 end
 local servers = {
   "sumneko_lua",
-  "pyright"
+  "pyright",
+  "rust_analyzer",
+  "taplo"
 }
+lsp_installer.setup()
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
 
 for _, server in pairs(servers) do
-  local serverOpts = {
-    on_attach = require("nvb.lsp.handlers").on_attach,-- on_attach is defined outside this snippet
+  local opts = {
+    on_attach = require("nvb.lsp.handlers").on_attach, -- on_attach is defined outside this snippet
     capabilities = require("nvb.lsp.handlers").capabilities,
   }
 
   if server == "pyright" then
     local pyright_opts = require("nvb.lsp.settings.pyright")
-    local opts = vim.tbl_deep_extend("force", serverOpts, pyright_opts)
-    lspconfig[server].setup(opts)
+    opts = vim.tbl_deep_extend("force", opts, pyright_opts)
   end
 
-  if server == "sumneko_lua" then
-    lspconfig[server].setup(serverOpts)
-  end
-end
-
-local opts = {
-    tools = {
-        autoSetHints = true,
-        hover_with_actions = true,
-        runnables = {
-            use_telescope = true
-        },
-        inlay_hints = {
-            show_parameter_hints = true,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
-    },
-
-    server = {
+if server == "rust_analyzer" then
+    require("rust-tools").setup {
+      tools = {
+        on_initialized = function()
+          vim.cmd [[
+            autocmd BufEnter,CursorHold,InsertLeave,BufWritePost *.rs silent! lua vim.lsp.codelens.refresh()
+          ]]
+        end,
+      },
+      server = {
         on_attach = require("nvb.lsp.handlers").on_attach,
         capabilities = require("nvb.lsp.handlers").capabilities,
         settings = {
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-            }
-        }
-    },
-}
+          ["rust-analyzer"] = {
+            lens = {
+              enable = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+          },
+        },
+      },
+    }
 
-require('rust-tools').setup(opts)
+    goto continue
+  end
+
+  lspconfig[server].setup(opts)
+  ::continue::
+end
