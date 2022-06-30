@@ -51,7 +51,6 @@ return packer.startup(function(use)
       'goolord/alpha-nvim',
       requires = { 'kyazdani42/nvim-web-devicons' },
   }
-  -- TODO
   use 'kyazdani42/nvim-tree.lua'
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -74,6 +73,8 @@ return packer.startup(function(use)
       require("todo-comments").setup {}
     end
   }
+  use{"p00f/nvim-ts-rainbow"}
+  use{"lukas-reineke/indent-blankline.nvim"}
   -- Colorschemes
   use({
     "catppuccin/nvim",
@@ -96,7 +97,7 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  
+
   use "williamboman/nvim-lsp-installer"
   use "neovim/nvim-lspconfig"
 
@@ -125,6 +126,7 @@ return packer.startup(function(use)
 
 
   -- RUST --
+  -- NOTE: RUST working with rust-tools
   use {"simrat39/rust-tools.nvim", commit = "11dcd674781ba68a951ab4c7b740553cae8fe671"}
   use {
       'saecki/crates.nvim',
