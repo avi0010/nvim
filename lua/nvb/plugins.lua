@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
   use "gelguy/wilder.nvim"
   use "xiyaowong/nvim-transparent"
+  use 'karb94/neoscroll.nvim'
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -74,7 +75,7 @@ return packer.startup(function(use)
     end
   }
   use{"p00f/nvim-ts-rainbow"}
-  use{"lukas-reineke/indent-blankline.nvim"}
+  -- use{"lukas-reineke/indent-blankline.nvim"}
   -- Colorschemes
   use({
     "catppuccin/nvim",
@@ -83,6 +84,8 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "rebelot/kanagawa.nvim"
   use "sainnhe/everforest"
+  use 'Yazeed1s/minimal.nvim'
+  use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -127,10 +130,12 @@ return packer.startup(function(use)
 
   -- RUST --
   -- NOTE: RUST working with rust-tools
-  use {"simrat39/rust-tools.nvim", commit = "11dcd674781ba68a951ab4c7b740553cae8fe671"}
+  use {"simrat39/rust-tools.nvim"}
   use {
       'saecki/crates.nvim',
-      requires = { 'nvim-lua/plenary.nvim' },
+      tag = 'v0.2.1',
+      event = { "BufRead Cargo.toml" },
+      requires = { { 'nvim-lua/plenary.nvim' } },
       config = function()
           require('crates').setup()
       end,

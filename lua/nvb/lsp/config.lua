@@ -6,7 +6,8 @@ local servers = {
   "sumneko_lua",
   "pyright",
   "rust_analyzer",
-  "taplo"
+  "taplo",
+  "clangd"
 }
 lsp_installer.setup()
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
