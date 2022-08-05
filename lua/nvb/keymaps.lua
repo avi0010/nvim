@@ -40,6 +40,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("n", "<ESC>", ":noh<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

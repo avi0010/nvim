@@ -85,7 +85,8 @@ return packer.startup(function(use)
   use "rebelot/kanagawa.nvim"
   use "sainnhe/everforest"
   use 'Yazeed1s/minimal.nvim'
-  use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+  -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+  use 'B4mbus/oxocarbon-lua.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

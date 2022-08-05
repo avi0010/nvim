@@ -41,7 +41,7 @@ dashboard.section.buttons.val = {
 }
 local function footer()
   -- Number of plugins
-  local total_plugins = 121
+  local total_plugins = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
   local datetime = os.date "%d-%m-%Y %H:%M:%S"
   local plugins_text = "   "
     .. total_plugins
