@@ -22,5 +22,7 @@ require "nvb.wilder"
 require "nvb.lsp"
 require "nvb.dap"
 require "nvb.ts-rainbow"
+require "nvb.diffview"
 require('neoscroll').setup()
+require "nvb.org"
 -- require "nvb.indent-line"

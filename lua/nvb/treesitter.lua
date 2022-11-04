@@ -1,6 +1,6 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
-  ensure_installed = {"cpp", "lua", "c", "python", "rust", "yaml", "json"},
+  ensure_installed = {"cpp", "lua", "c", "python", "rust", "yaml", "json", "org"},
   sync_install = true,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {

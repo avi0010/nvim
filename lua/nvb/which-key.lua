@@ -93,6 +93,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  ['m'] = {"<cmd>lua require('telescope').extensions.media_files.media_files()<CR>", "Media Files"},
 
   p = {
     name = "Packer",

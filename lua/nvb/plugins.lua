@@ -52,12 +52,11 @@ return packer.startup(function(use)
       requires = { 'kyazdani42/nvim-web-devicons' },
   }
   use 'kyazdani42/nvim-tree.lua'
-  use "akinsho/bufferline.nvim"
+  use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
   use "moll/vim-bbye"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "folke/which-key.nvim"
-  use "vimwiki/vimwiki"
   use "danymat/neogen"
   use "rcarriga/nvim-notify"
   use "tpope/vim-surround"
@@ -75,18 +74,17 @@ return packer.startup(function(use)
     end
   }
   use{"p00f/nvim-ts-rainbow"}
+  use {'nvim-orgmode/orgmode'}
   -- use{"lukas-reineke/indent-blankline.nvim"}
   -- Colorschemes
   use({
     "catppuccin/nvim",
     as = "catppuccin"
   })
-  use "lunarvim/darkplus.nvim"
   use "rebelot/kanagawa.nvim"
-  use "sainnhe/everforest"
   use 'Yazeed1s/minimal.nvim'
-  -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
   use 'B4mbus/oxocarbon-lua.nvim'
+  use "sam4llis/nvim-tundra"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -107,6 +105,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- TMUX --
   use "christoomey/vim-tmux-navigator"
@@ -155,6 +154,7 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use {"tpope/vim-fugitive"}
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

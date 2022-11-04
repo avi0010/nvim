@@ -47,7 +47,7 @@ null_ls.setup ({
     null_ls.builtins.code_actions.gitsigns,
     formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
     formatting.black,
-    diagnostics.pylint,
+    diagnostics.flake8,
   },
   -- on_attach = function(client, bufnr)
   --     if client.supports_method("textDocument/formatting") then
